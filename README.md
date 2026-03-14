@@ -179,8 +179,10 @@ Protected routes ensure secure access control.
 # 📸 Screenshots
 
 
-![Dashboard](assets/img1.png)
-![Exam Page](assets/img-2.png)
+![Dashboard](assets/img-1.png)  ![Exam Page](assets/img-6.png)
+![Exam Page](assets/img-2.png)  
+![Exam Page](assets/img-3.png)
+![Exam Page](assets/img-5.png)
 
 
 
