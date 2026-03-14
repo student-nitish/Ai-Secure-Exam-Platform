@@ -31,7 +31,7 @@ const Leaderboard = () => {
 
   return (
     <div className="min-h-screen bg-[#020617] text-white p-6 md:p-9">
-      <h1 className=" font-serif text-3xl md:text-4xl font-bold mb-10 text-center">
+      <h1 className=" font-serif text-3xl md:text-4xl font-bold mb-10 text-center md:-mt-5">
         Leaderboard
       </h1>
 
