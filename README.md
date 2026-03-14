@@ -1,16 +1,210 @@
-# React + Vite
+# 🧠 AI Proctored Online Examination Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack **AI-assisted Online Examination System** that allows institutes to conduct secure online exams with **AI proctoring, automated evaluation, analytics dashboards, leaderboard, and real-time notifications**.
 
-Currently, two official plugins are available:
+Built using the **MERN Stack + Socket.IO**, this platform provides a modern SaaS-style interface for both **students and administrators**.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+# 🚀 Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 👨‍🎓 Student Features
 
-## Expanding the ESLint configuration
+- View available exams
+- Start exam with **AI Proctoring**
+- Fullscreen enforcement
+- Tab-switch detection
+- Automatic exam submission on:
+  - Time expiration
+  - Exceeding violation limit
+  - Exiting fullscreen
+- MCQ and subjective questions
+- Detailed exam analytics
+- Leaderboard ranking
+- Real-time notifications
+- Profile settings
+- Exam history and results dashboard
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 👨‍💼 Admin Features
+
+- Admin analytics dashboard
+- Create and manage exams
+- Add MCQ and subjective questions
+- Evaluate subjective answers
+- Publish results
+- Monitor proctoring violations
+- View leaderboard statistics
+- View student performance analytics
+
+---
+
+# 🛡 AI Proctoring Features
+
+The system includes **basic AI-based exam monitoring** using the webcam:
+
+- Face detection
+- Multiple face detection
+- Face movement detection
+- Tab switch detection
+- Fullscreen enforcement
+- Violation logging
+- Auto submission on excessive violations
+
+These mechanisms help maintain **exam integrity**.
+
+---
+
+# 🔔 Real-Time Notification System
+
+The platform uses **Socket.IO** to deliver real-time notifications.
+
+Students receive notifications for:
+
+- Exam results published
+- New exams available
+
+Features include:
+
+- Real-time updates
+- Notification history
+- Read/unread tracking
+
+---
+
+# 🏆 Leaderboard System
+
+Students are ranked based on:
+
+- Average exam percentage
+- Number of exams attempted
+
+Leaderboard UI includes:
+
+- Podium layout (Top 3)
+- Full ranking table
+- Current user highlighting
+- Animated crown effect for #1
+
+---
+
+# 📊 Analytics Dashboards
+
+## Student Dashboard
+
+Shows personal performance analytics:
+
+- Accuracy rate
+- Completion rate
+- Exam progress
+- Score distribution
+- Performance insights
+
+Charts implemented using **Recharts**.
+
+---
+
+## Admin Dashboard
+
+Shows platform-wide statistics:
+
+- Total students
+- Total exams
+- Exam attempts
+- Pass vs Fail statistics
+- Popular exams
+- Violation statistics
+
+---
+
+# ⚙️ Tech Stack
+
+## Frontend
+
+- React.js
+- Redux Toolkit
+- TailwindCSS
+- Recharts
+- Lucide Icons
+- React Router
+- Sonner (Toast Notifications)
+
+---
+
+## Backend
+
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT Authentication
+- Bcrypt Password Hashing
+
+---
+
+## Real-Time Communication
+
+- Socket.IO
+
+Used for:
+
+- Notifications
+- Live updates
+
+---
+
+## AI Proctoring
+
+- face-api.js
+- WebRTC camera access
+- Browser Fullscreen API
+- Tab visibility detection
+
+
+
+# 🔐 Authentication
+
+Authentication is implemented using **JWT tokens**.
+
+Supported roles:
+
+- Student
+- Admin
+
+Protected routes ensure secure access control.
+
+---
+
+# 📸 Screenshots
+
+
+
+
+
+
+
+
+
+
+# 🛠 Installation
+
+## Clone the Repository
+
+```bash
+git clone https://github.com/your-username/ai-proctored-exam-system.git
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
