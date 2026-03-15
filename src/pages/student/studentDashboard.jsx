@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { apiConnector } from "../../servicse/apiConnector";
+import ModernLoader from "../../component/loader";
 import {
   PieChart,
   Pie,
@@ -17,16 +18,19 @@ import {
 
 const StudentDashboard = () => {
   const [dashboard, setDashboard] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     fetchDashboard();
   }, []);
 
   const fetchDashboard = async () => {
+    setLoading(true);
     const res = await apiConnector("GET", "/dashboard/student");
     setDashboard(res.data);
+    setLoading(false);
   };
-
+  if(loading) return <ModernLoader/>
   if (!dashboard) return null;
 
   const { summary, examScores, accuracyDistribution } = dashboard;
@@ -40,8 +44,9 @@ const StudentDashboard = () => {
   const COLORS = ["#22c55e", "#ef4444", "#64748b"];
 
   return (
-    <div className="p-6 md:p-10   text-white space-y-10">
 
+    <div className="p-6 md:p-10   text-white space-y-10">
+   
       {/* PAGE TITLE */}
 
       <h1 className="text-3xl font-bold">

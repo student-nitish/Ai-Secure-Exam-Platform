@@ -2,24 +2,31 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { apiConnector } from "../servicse/apiConnector";
 import { Crown } from "lucide-react";
+import ModernLoader from "../component/loader";
 
 const Leaderboard = () => {
   const [leaders, setLeaders] = useState([]);
   const { user } = useSelector((state) => state.auth);
+  const [loading , setLoading]= useState(false);
 
   const fetchLeaderboard = async () => {
     try {
+      setLoading(true);
       const res = await apiConnector("GET", "/leaderboard/global");
       setLeaders(res.data.leaderboard || []);
     } catch (err) {
       console.error(err);
+    }
+    finally{
+      setLoading(false);
     }
   };
 
   useEffect(() => {
     fetchLeaderboard();
   }, []);
-
+   
+  if(loading) return <ModernLoader/>
   if (!leaders.length) return null;
 
   const first = leaders[0];

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { apiConnector } from "../servicse/apiConnector";
 import { useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import ModernLoader from "../component/loader";
 
 const AllExams = () => {
   const [exams, setExams] = useState([]);
@@ -15,10 +16,7 @@ const AllExams = () => {
   const fetchExams = async () => {
     try {
       setLoading(true);
-
       const res = await apiConnector("GET", "/exams/available");
-      console.log("all exmas", res.data.exams);
-
       setExams(res.data.exams || []);
     } catch (err) {
       console.error(err);
@@ -36,7 +34,7 @@ const AllExams = () => {
 
       {/* Loading State */}
       {loading && (
-        <div className="text-center text-gray-400">Loading exams...</div>
+        <ModernLoader/>
       )}
 
       {/* Empty State */}
