@@ -28,6 +28,7 @@ const StudentExam = () => {
   const [examStarted, setExamStarted] = useState(false);
   const [violationList, setViolationList] = useState([]);
   const [markedForReview, setMarkedForReview] = useState({});
+  const [loading,setloading]=useState(false);
 
   /* ================= START EXAM ================= */
 
@@ -222,11 +223,12 @@ const StudentExam = () => {
     }
 
     isSubmittingRef.current = true;
+     setloading(true);
 
     try {
       const attempted = Object.keys(answersRef.current).length;
       const totalQuestions = questions.length;
-
+     
       const res = await apiConnector("POST", "/exams/submit", {
         attemptId: currentAttemptId,
         answers: Object.entries(answersRef.current).map(([q, a]) => ({
@@ -236,10 +238,7 @@ const StudentExam = () => {
         violations: violationsRef.current,
       });
 
-      console.log("after submit data", res.data);
-
       toast.success("Exam submitted successfully");
-
       // exit fullscreen safely
       if (document.fullscreenElement) {
         await document.exitFullscreen();
@@ -255,6 +254,11 @@ const StudentExam = () => {
       toast.error("Submission failed");
       isSubmittingRef.current = false;
     }
+     finally {
+
+    setloading(false);
+
+  }
   };
 
   if (!questions.length) return null;
@@ -287,9 +291,10 @@ const StudentExam = () => {
         {/* SUBMIT BUTTON */}
         <button
           onClick={handleSubmit}
+          disabled={loading}
           className="bg-green-600 hover:bg-green-700 transition px-5 py-2 rounded-xl font-semibold"
         >
-          Submit Exam
+        {loading?"Submitting":"Submit Exam"}
         </button>
       </div>
 
