@@ -43,7 +43,22 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(express.json());
+app.use(cookieParser());app.use(express.json());
 app.use(cookieParser());
+
+const allowedOrigins = [
+  "http://localhost:3000",
+  "http://localhost:5174",
+  "http://localhost:5173",
+  "https://ai-secure-exam-platform.vercel.app"
+];
+
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+}));
+
+app.options("*", cors());
 
 app.use(
   fileUpload({
@@ -54,17 +69,6 @@ app.use(
 
 cloudinaryConnect();
 
-app.use(
-  cors({
-    origin: [
-      "http://localhost:3000",
-      "http://localhost:5174", 
-      "http://localhost:5173",
-      "https://ai-secure-exam-platform.vercel.app"
-    ],
-    credentials: true,
-  })
-);
 
 // Routes
 app.use("/api/auth", authRoutes);
