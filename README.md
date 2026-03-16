@@ -6,6 +6,8 @@ Built using the **MERN Stack + Socket.IO**, this platform provides a modern SaaS
 
 ---
 
+# Live Link -> https://ai-secure-exam-platform.vercel.app
+
 # 🚀 Features
 
 ## 👨‍🎓 Student Features
