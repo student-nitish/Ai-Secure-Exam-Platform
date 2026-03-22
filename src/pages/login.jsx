@@ -13,6 +13,7 @@ export default function Login() {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const { user } = useSelector((state) => state.auth);
+  const[loading,setLoading]=useState(false);
 
   const [form, setForm] = useState({
     email: "",
@@ -32,6 +33,7 @@ export default function Login() {
     e.preventDefault();
 
     try {
+      setLoading(true);
     const response = await apiConnector("POST", "/auth/login", form);
 
     const { success, token, user, message } = response.data;
@@ -63,6 +65,8 @@ export default function Login() {
   );
   console.error("Login error:", error.response?.data);
   
+} finally{
+  setLoading(false);
 }
   };
 
@@ -127,10 +131,11 @@ export default function Login() {
           {/* Login Button */}
           <button
             type="submit"
+            disabled={loading}
             className="w-full bg-black text-white py-3 
             rounded-lg hover:bg-gray-800"
           >
-            Sign In
+            {loading?"Signing In..":"Sign In"}
           </button>
 
         </form>

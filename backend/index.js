@@ -43,7 +43,6 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(express.json());
-app.use(cookieParser());app.use(express.json());
 app.use(cookieParser());
 
 const allowedOrigins = [
@@ -58,7 +57,7 @@ app.use(cors({
   credentials: true,
 }));
 
-app.options("*", cors());
+
 
 app.use(
   fileUpload({

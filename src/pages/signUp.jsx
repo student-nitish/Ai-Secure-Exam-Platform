@@ -11,6 +11,7 @@ export default function Signup() {
 
   const [form, setForm] = useState({});
   const [showPassword, setShowPassword] = useState(false);
+  const[loading,setLoading]=useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -28,6 +29,7 @@ export default function Signup() {
 };
 
   try {
+    setLoading(true);
     const response = await signup(form);
 
     console.log("Signup Response:", response.data);
@@ -43,6 +45,8 @@ export default function Signup() {
       error.response?.data?.message ||
       "Signup failed. Try again."
     );
+  }finally{
+    setLoading(false);
   }
 };
 
@@ -118,6 +122,7 @@ export default function Signup() {
           />
 
           <button
+           disabled={loading}
             className="w-full py-3 rounded-lg text-white
             bg-black hover:bg-gray-800"
           >
