@@ -20,7 +20,7 @@ const AdminEvaluateExam = () => {
     );
 
     setAttempt(res.data.attempt);
-    console.log("AFTER FETCHING",res.data.attempt);
+    // console.log("AFTER FETCHING",res.data.attempt);
 
     const initial = {};
     res.data.attempt.answers.forEach(a=>{

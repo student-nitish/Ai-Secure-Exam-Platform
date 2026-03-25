@@ -48,7 +48,7 @@ export default function CreateExam() {
         formData
       );
 
-      console.log("after exam creation", response.data);
+      // console.log("after exam creation", response.data);
 
       const examId = response.data.exam._id;
 

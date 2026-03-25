@@ -160,7 +160,7 @@ export default function AddQuestions() {
         count: aiCount,
         type: "mcq",
       });
-      console.log("after generaing",res.data);
+      // console.log("after generaing",res.data);
       const formatted = res.data.questions.map((q) => ({
      questionText: q.questionText ?? "",
      options:

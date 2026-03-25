@@ -52,6 +52,12 @@ const ProfileSettings = () => {
   }, []);
 
   const handleProfileUpdate = async () => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  if (!emailRegex.test(form.email)) {
+    toast.error("Invalid email format ❌");
+    return;
+  }
     try {
       await apiConnector("PUT", "/users/update-profile", form);
 
@@ -144,7 +150,9 @@ const ProfileSettings = () => {
             <label className="text-sm text-gray-400">Email</label>
 
             <input
+             type="email"
               value={form.email}
+              required
               onChange={(e) =>
                 setForm({
                   ...form,

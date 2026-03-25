@@ -8,7 +8,7 @@ const StudentResults = () => {
 
   const fetchResults = async () => {
     const res = await apiConnector("GET", "/exams/student");
-    console.log("after fetching result", res.data);
+    // console.log("after fetching result", res.data);
 
     setResults(res.data.results);
   };

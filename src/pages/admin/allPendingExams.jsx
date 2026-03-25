@@ -16,7 +16,7 @@ const PendingEvaluations = () => {
         "/results/evaluations"
       );
 
-      console.log("pending attempts", res.data);
+      // console.log("pending attempts", res.data);
 
       setAttempts(res.data.attempts);
 

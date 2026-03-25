@@ -4,7 +4,7 @@ import { Navigate } from "react-router-dom";
 
 const StudentRoute = ({ children }) => {
   const { token,user,loading } = useSelector((state) => state.auth);
-  console.log("user",user)
+  // console.log("user",user)
 
   // Wait until profile loads
   if (loading) {

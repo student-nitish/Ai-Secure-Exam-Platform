@@ -17,7 +17,7 @@ export default function AdminExams() {
         "GET",
         "/exams/admin-exams"
       );
-      console.log("all",res.data);
+      // console.log("all",res.data);
 
       setExams(res.data.exams);
 
